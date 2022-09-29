@@ -15,7 +15,9 @@ public class PhoneCombinations {
             return;
         }
         int digits = up.charAt(0) - '0'; // 0 is added to convert the 12 to digits, 10 to digit firs and 2 to digit next;
-        for (int i = (digits - 1) * 3; i < digits * 3; i++) {
+        int start = (digits - 1) * 3;
+        int end = start + 3;
+        for (int i = start; i < end; i++) {
             char ch =(char) ('a' + i);
             phoneCombinations(p + ch, up.substring(1));
 
