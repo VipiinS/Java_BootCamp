@@ -13,7 +13,22 @@ public class sudokuSolver {
                 {0, 0, 0, 0, 0, 0, 0, 7, 4},
                 {0, 0, 5, 2, 0, 6, 3, 0, 0}
         };
-        System.out.println(solve(board));
+        //System.out.println(solve(board));
+        char[][] charBoard = {
+                {'5','3','.','.','.','.','.','1','2'},
+                {'6','7','2','1','9','5','3','4','8'},
+                {'1','9','8','3','4','2','5','6','7'},
+                {'8','5','9','7','6','1','4','2','3'},
+                {'4','2','6','8','5','3','7','9','1'},
+                {'7','1','3','9','2','4','8','5','6'},
+                {'9','6','1','5','3','7','2','8','4'},
+                {'2','8','7','4','1','9','6','3','5'},
+                {'3','4','5','2','8','6','1','7','9'}
+        };
+        int[][] testBoard = new int[9][9];
+        covert(charBoard,testBoard);
+        System.out.println(solve(testBoard));
+        convertchar(charBoard,testBoard);
 
     }
     static boolean solve(int[][] board){
@@ -80,6 +95,27 @@ public class sudokuSolver {
                 System.out.print(num + " ");
             }
             System.out.println();
+        }
+    }
+    static void covert(char[][] charboard,int[][] testBoard){
+        System.out.println("inside from char covert");
+        for (int i = 0; i < charboard.length; i++) {
+            for (int j = 0; j < charboard.length; j++) {
+                if(charboard[i][j] != '.'){
+                    testBoard[i][j] = charboard[i][j] - '0';
+                }
+                else
+                    testBoard[i][j] = 0;
+            }
+        }
+        //display(testBoard);
+    }
+    static void convertchar(char[][] charboard,int[][] testboard){
+        System.out.println("int[][] to char[][]");
+        for (int i = 0; i < charboard.length; i++) {
+            for (int j = 0; j < charboard.length; j++) {
+                charboard[i][j] = (char) (testboard[i][j]);
+            }
         }
     }
 }
