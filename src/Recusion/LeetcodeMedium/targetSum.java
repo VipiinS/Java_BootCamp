@@ -23,19 +23,19 @@ package Recusion.LeetcodeMedium;
  */
 
 public class targetSum {
-    public static void main(String[] args) {
-        int[] arr ={1,1,1,1,1};
-        System.out.println(findTargetSumWays(arr,3));
+    private static int countTarget(int[] nums, int target, int p, int sum) {
+        if(p == nums.length) {
+            return target == sum ? 1 : 0; // if the sum is equal to target,return 1
+        }
+        // sum is added by the next element in first recursive call and in th next call sum is subtracted by the element to form a recursive tree
+        return countTarget(nums,target,p+1,sum + (nums[p])) + countTarget(nums,target,p+1,sum + (- nums[p]));
     }
-
     public static int findTargetSumWays(int[] nums, int target) {
         return countTarget(nums,target,0,0);
     }
 
-    private static int countTarget(int[] nums, int target, int p, int sum) {
-        if(p == nums.length) {
-            return target == sum ? 1 : 0;
-        }
-        return countTarget(nums,target,p+1,sum + (nums[p])) + countTarget(nums,target,p+1,sum + (- nums[p]));
+    public static void main(String[] args) {
+        int[] arr ={1,1,1,1,1};
+        System.out.println(findTargetSumWays(arr,3));
     }
 }
