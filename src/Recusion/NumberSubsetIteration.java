@@ -14,7 +14,9 @@ public class NumberSubsetIteration {
     }
     public static List<List<Integer>> subSet(int[] arr){  // returning a list containing a list
         List<List<Integer>> outer = new ArrayList<>();
+
         outer.add(new ArrayList<>()); // first an empty array is added to the outer list
+
         for( int num : arr){ // for each number in arr
             int n = outer.size(); // the size of the outer is taken
             for(int i = 0; i < n; i++){ // the loop will be repeated for outer loop size
