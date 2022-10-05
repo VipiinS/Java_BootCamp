@@ -1,4 +1,4 @@
-package Recusion.LeetcodeEasy;
+package Recusion.LeetcodeMedium;
 import java.util.ArrayList;
 import java.util.List;
 //241. Different Ways to Add Parentheses
@@ -20,7 +20,7 @@ import java.util.List;
      */
 public class differentWaysParentheses {
     public static void main(String[] args) {
-        System.out.println(diffWaysToCompute("2-1-1"));
+        System.out.println(diffWaysToCompute("2-1-1-1"));
     }
     public static List<Integer> diffWaysToCompute(String expression) {
     ArrayList<Integer> result = new ArrayList<>();
@@ -29,15 +29,16 @@ public class differentWaysParentheses {
             if( ch == '+' || ch == '-' || ch == '*'){
                 List<Integer> left  = diffWaysToCompute(expression.substring(0,i));
                 List<Integer> right  = diffWaysToCompute(expression.substring(i+1));
-                for(int l : left)
-                    for(int r : right){
-                        if( ch == '+')
+                for(int l : left) {//   the left is in List format, we convert it to integer format using the for each loop
+                    for (int r : right) { //the right is in List format, we convert it to integer format using the for each loop
+                        if (ch == '+')
                             result.add(l + r);
-                        else if( ch == '-')
+                        else if (ch == '-')
                             result.add(l - r);
                         else
                             result.add(l * r);
                     }
+                }
             }
 
         }

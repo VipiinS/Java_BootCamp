@@ -14,7 +14,7 @@ public class reverseString {
         reverseStringVoid(s2,0);
         System.out.println(s2);
     }
-    private static void reverseStringVoid(char s[],int i){
+    private static void reverseStringVoid(char[] s,int i){
         if(s.length/2 == i)
             return;
         char temp = s[i];
