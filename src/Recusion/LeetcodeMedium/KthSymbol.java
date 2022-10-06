@@ -3,7 +3,7 @@ package Recusion.LeetcodeMedium;
 public class KthSymbol {
     public static void main(String[] args) {
         //System.out.println(kthGrammar(2,2));
-        System.out.println(recrusion(3,2));
+        //System.out.println(recrusion(3,2));
     }
     public static int kthGrammar(int n, int k) {
         //time limit exceeded
