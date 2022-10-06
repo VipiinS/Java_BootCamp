@@ -1,4 +1,4 @@
-package Recusion;
+package Recusion.LeetCodeHard;
 import java.util.*;
 // have done for all numbers having 3 character numpad;
 // do for numpad having 4 characters for 7 and 9 numbers.
