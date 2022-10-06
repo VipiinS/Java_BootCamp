@@ -13,6 +13,7 @@ public class reverseString {
         System.out.println(reverseStringHelper(s,ans,s.length-1,0));
         reverseStringVoid(s2,0);
         System.out.println(s2);
+        System.out.println(reversestring("vipin"));
     }
     private static void reverseStringVoid(char[] s,int i){
         if(s.length/2 == i)
@@ -29,6 +30,11 @@ public class reverseString {
         }
         ans[i++] = s[length--];
         return reverseStringHelper(s,ans,length,i);
+    }
+    public static String reversestring(String str){
+        StringBuilder sb=new StringBuilder(str);
+        sb.reverse();
+        return sb.toString();
     }
 
 }
