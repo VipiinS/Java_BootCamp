@@ -3,8 +3,9 @@ package Recusion.LeetcodeMedium;
 import java.util.Arrays;
 
 public class perfectSquares {
+   // public static int count = 0;
     public static void main(String[] args) {
-        System.out.println(numSquares(5));
+        System.out.println(numSquares(12));
     }
     public static int numSquares(int n) {
         int[] dp = new int[n+1]; //dynamic programming
@@ -30,6 +31,7 @@ public class perfectSquares {
         }
         return dp[n] ;
     }
+
 }
 /*
                         Recursive tree

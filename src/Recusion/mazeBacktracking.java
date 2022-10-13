@@ -11,7 +11,7 @@ public class mazeBacktracking {
                 {true,false,true}
         };
         allPath("",0,0,board);
-        System.out.println(allPathRet("", 0,0, board));
+        //System.out.println(allPathRet("", 0,0, board));
     }
     private static ArrayList<String> allPathRet(String p,int r,int c,boolean[][] maze){
         if(r == maze.length - 1 && c == maze[0].length - 1){
