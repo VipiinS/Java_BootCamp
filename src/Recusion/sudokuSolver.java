@@ -36,7 +36,8 @@ public class sudokuSolver {
         int row = -1;
         int col = -1;
         boolean emptyLeft = true;
-        for(int i = 0 ; i < n ; i++){ // for finding the empty cell to put some number in
+        // for finding the empty cell to put some number in
+        for(int i = 0 ; i < n ; i++){
             for (int j = 0; j < n; j++) {
                 if(board[i][j] == 0){
                     row = i;
@@ -44,7 +45,10 @@ public class sudokuSolver {
                     emptyLeft = false;
                     break;
                 }
-            }
+            }/*
+             if an empty cell is found,
+             then the first for loop does not need to be iterated,
+             hence the loop is broken */
             if(!emptyLeft)
                 break;
         }
@@ -55,19 +59,21 @@ public class sudokuSolver {
         for (int number = 1; number <= 9; number++) {
             if(isSafe(board,row,col,number)){
                 board[row][col] = number;
-                if(solve(board)) {
+                if(solve(board)) { // as the above number is placed we check for next cell
                     System.out.println();
                     display(board);
                     return true;
                 }
-                else
-                    board[row][col] = 0;
+                else // if the checked cell is false,that means the number placed ine the first cell is wrg,hence backtracking
+                    board[row][col] = 0; // BACKTRACKING
             }
         }
         return false;
     }
     static boolean isSafe(int[][] board,int row,int col, int num){
+
         for (int i = 0; i < board.length; i++) {
+            //row check
             if(board[row][i] == num)
                 return false;
 
@@ -78,6 +84,7 @@ public class sudokuSolver {
                 }
             }
         }
+        // check for 3x3 box
         int sqrt = (int)(Math.sqrt(board.length));
         int rowStart = row - row % sqrt;
         int colStart = col - col % sqrt;
@@ -89,6 +96,7 @@ public class sudokuSolver {
         }
         return true;
     }
+    // to display the board
     private static void display(int[][] board) {
         for(int[] row : board){
             for(int num : row){
@@ -97,6 +105,7 @@ public class sudokuSolver {
             System.out.println();
         }
     }
+    // for leetcode,converting character[] to int[]
     static void covert(char[][] charboard,int[][] testBoard){
         System.out.println("inside from char covert");
         for (int i = 0; i < charboard.length; i++) {
@@ -108,7 +117,6 @@ public class sudokuSolver {
                     testBoard[i][j] = 0;
             }
         }
-        //display(testBoard);
     }
     static void convertchar(char[][] charboard,int[][] testboard){
         System.out.println("int[][] to char[][]");

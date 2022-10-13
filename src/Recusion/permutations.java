@@ -27,7 +27,7 @@ public class permutations {
         return ans;
     }
 
-    public static void Permutations(String p, String up){
+    private static void Permutations(String p, String up){
         if(up.isEmpty()){
             System.out.println(p);
             return;
