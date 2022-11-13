@@ -190,6 +190,7 @@ public class LL {
     }
 
 
+
     public static class Node{
         public int val;
         public Node next;
@@ -397,19 +398,104 @@ public class LL {
             hf.next = null;
         }
     }
+
+    public Node rotate(Node head, int k){
+        if(k <= 0 || head == null || head.next == null)
+            return head;
+        Node last = head;
+        int length = 0;
+        while(last != null){
+            length++;
+            last = last.next;
+        }
+        last.next = head;
+        int rotations = k % length;
+        int skip = length - rotations;
+        Node newLast = head;
+        for (int i = 0; i < skip; i++) {
+            newLast = newLast.next;
+        }
+        head= newLast.next;
+        newLast.next = null;
+        return head;
+    }
+
+    public Node intersection(Node headA, Node headB){
+        Node temp1 = headA;
+        Node temp2 = headB;
+        while(temp1 != null && temp2 != null){
+            temp2 = headB;
+            while(temp2 != null){
+                if(temp1 == temp2){
+                    return temp1;
+                }
+                else{
+                    temp2 = temp2.next;
+                }
+            }
+            temp1 = temp1.next;
+        }
+        return null;
+    }
+
+    public Node remove(Node head,int val){
+        if(head == null){
+            return null;
+        }
+        head.next = remove(head.next,val);
+        return head.val == val ? head.next : head;
+    }
+    public void removeFromEndIndex(Node head, int index) {
+        display();
+        reverseRecursive(head);
+        display();
+        Node prev = head;
+        System.out.println(prev.val);
+        for (int i = 0; prev.next != null && i < index; i++) {
+            prev = prev.next;
+        }
+        if (prev.next == null){
+            reverseRecursive(head);
+            return;
+        }
+        prev.next = prev.next.next;
+        reverse(head);
+    }
     public static void main(String[] args) {
         LL list = new LL();
-        list.insertLast(5);
-        list.insertLast(4);
-        list.insertLast(3);
-        list.insertLast(2);
         list.insertLast(1);
+        list.insertLast(2);
+        list.insertLast(3);
+        list.insertLast(4);
+        list.insertLast(5);
 //        list.display();
 //        list.reverseRecursive(list.head);
 //        list.display();
-        list.reverse(list.head);
+//        list.reverse(list.head);
+        list.display();
+        list.swapNodes(list.head,2);
         list.display();
 
+    }
+
+
+
+    public void swapNodes(Node head, int index){
+        if(index == 0){
+            return;
+        }
+        // find the length of the list
+        int length = 0;
+        Node temp = head;
+        while(head != null){
+            length++;
+            head = head.next;
+        }
+        Node node1 = get(index - 1);
+        Node node2 = get(length - index);
+        int tempo = node1.val;
+        node1.val = node2.val;;
+        node2.val = tempo;
     }
 
 
