@@ -9,8 +9,6 @@ public class XORFromAtoB {
         for(int i = a; i <= b; i++)
             ans2 ^= i;
         System.out.println(ans2);
-
-
     }
 
     private static int xor(int n) {

@@ -109,9 +109,9 @@ public class RecursionSorting {
         int j = m;// for right half array
         int k = 0; // k will be used as index for mix array
         while(i < m && j < e){ // when the both half is of same size
-            if(arr[i] > arr[j]){// the value greater in two halves is assigned to first index of mix and i is incremened
+            if(arr[i] > arr[j]){// the value greater in two halves is assigned to first index of mix and i is incremented
                 mix[k] = arr[i];
-                i++; // j is not incremented until the next i element is check and it j is greater than i element,j is incremented or i is incremented again
+                i++; // j is not incremented until the next i element is checked and it j is greater than i element,j is incremented or i is incremented again
             }
             else{
                 mix[k] = arr[j];
